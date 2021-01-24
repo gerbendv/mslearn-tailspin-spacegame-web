@@ -60,8 +60,8 @@ namespace TailSpin.SpaceGame.Web
             var result = _items.AsQueryable()
                 .Where(queryPredicate) // filter
                 .OrderByDescending(orderDescendingPredicate) // sort
-                .Skip(page * pageSize -1) // find page
-                .Take(pageSize) // take items
+                .Skip(page * pageSize) // find page
+                .Take(pageSize -1) // take items
                 .AsEnumerable(); // make enumeratable
 
             return Task<IEnumerable<T>>.FromResult(result);
